@@ -222,37 +222,47 @@ app.use("/api/upload", uploadRoutes);
 
 ### Authentication
 
-- `POST /api/auth/register`
-- `POST /api/auth/login`
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/auth/register` | Public | Register a new user |
+| `POST` | `/api/auth/login` | Public | Log in and receive a JWT |
 
 ### Products
 
-- `GET /api/products`
-- `GET /api/products/:id`
-- `POST /api/products` (admin)
-- `PUT /api/products/:id` (admin)
-- `DELETE /api/products/:id` (admin)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `GET` | `/api/products` | Public | Get all products |
+| `GET` | `/api/products/:id` | Public | Get a single product by ID |
+| `POST` | `/api/products` | Admin | Create a new product |
+| `PUT` | `/api/products/:id` | Admin | Update a product |
+| `DELETE` | `/api/products/:id` | Admin | Delete a product |
 
 ### Cart
 
-- `GET /api/cart` (authenticated user)
-- `POST /api/cart` (authenticated user)
-- `PUT /api/cart/:productId` (authenticated user)
-- `DELETE /api/cart/:productId` (authenticated user)
-- `DELETE /api/cart` (authenticated user)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `GET` | `/api/cart` | Authenticated user | Get current user's cart |
+| `POST` | `/api/cart` | Authenticated user | Add product to cart |
+| `PUT` | `/api/cart/:productId` | Authenticated user | Update cart item quantity |
+| `DELETE` | `/api/cart/:productId` | Authenticated user | Remove a cart item |
+| `DELETE` | `/api/cart` | Authenticated user | Clear the full cart |
 
 ### Orders
 
-- `POST /api/orders` (authenticated user)
-- `GET /api/orders/my-orders` (authenticated user)
-- `GET /api/orders/:id` (authenticated user/admin)
-- `GET /api/orders` (admin)
-- `PUT /api/orders/:id/status` (admin)
-- `DELETE /api/orders/:id` (admin)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/orders` | Authenticated user | Create an order from cart |
+| `GET` | `/api/orders/my-orders` | Authenticated user | Get current user's orders |
+| `GET` | `/api/orders/:id` | Authenticated user/admin | Get order by ID |
+| `GET` | `/api/orders` | Admin | Get all orders |
+| `PUT` | `/api/orders/:id/status` | Admin | Update order status |
+| `DELETE` | `/api/orders/:id` | Admin | Delete an order |
 
 ### Upload
 
-- `POST /api/upload/product-image` (admin)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/upload/product-image` | Admin | Upload a product image |
 
 ## Prerequisites
 
