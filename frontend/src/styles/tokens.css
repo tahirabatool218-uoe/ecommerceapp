@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Design tokens — the single source of truth for the visual language.
+   ========================================================================== */
+:root {
+  /* Brand */
+  --color-primary: #1f4d42;
+  --color-primary-hover: #163b32;
+  --color-primary-soft: #e3eeea;
+  --color-on-primary: #ffffff;
+
+  --color-accent: #e3a72f;
+  --color-accent-soft: #fbf0d6;
+  --color-accent-ink: #7a5200;
+
+  /* Surfaces */
+  --color-bg: #f5f7f5;
+  --color-surface: #ffffff;
+  --color-surface-muted: #edf1ee;
+
+  /* Text */
+  --color-ink: #17251f;
+  --color-text: #2c3b35;
+  --color-text-muted: #56675f;
+
+  /* Borders */
+  --color-border: #dbe2de;
+  --color-border-strong: #bfcac4;
+
+  /* Status */
+  --color-success: #16794a;
+  --color-success-soft: #e0f2e8;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdeceb;
+
+  /* Typography */
+  --font-display: "Bricolage Grotesque Variable", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans Variable", "Segoe UI", system-ui, sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2.2vw, 3.125rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* Shape: small controls < media < cards < panels */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(23, 37, 31, 0.06);
+  --shadow-md: 0 8px 24px -8px rgba(23, 37, 31, 0.16);
+
+  /* Layout */
+  --container-max: 1180px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-height: 4.25rem;
+
+  --focus-ring: 0 0 0 3px rgba(31, 77, 66, 0.35);
+
+  /* Semantic extras — small, named surfaces used by a handful of components
+     so they can be re-tinted per theme instead of hard-coded per file. */
+  --color-danger-border: #efc4c0;
+  --color-danger-icon-bg: #fadcd9;
+  --color-skeleton-shine: #f7f9f7;
+  --color-overlay-strong: rgba(255, 255, 255, 0.95);
+  --color-overlay-soft: rgba(255, 255, 255, 0.65);
+  --color-overlay-border: rgba(31, 77, 66, 0.3);
+
+  /* Theme transition: only color-related properties, so layout/animations
+     elsewhere are never affected by the toggle. */
+  --theme-transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* ==========================================================================
+   Dark mode — same token names, professional dark-slate values.
+   Toggled by setting data-theme="dark" on <html> (see ThemeContext). Every
+   component already reads colors through these variables, so no other CSS
+   file needs a dark-mode branch.
+   ========================================================================== */
+html[data-theme="dark"] {
+  /* Brand (same hue family as light mode, re-balanced for dark surfaces) */
+  --color-primary: #2f9678;
+  --color-primary-hover: #257c62;
+  --color-primary-soft: #16281f;
+  --color-on-primary: #ffffff;
+
+  --color-accent: #eab54a;
+  --color-accent-soft: #3a2f14;
+  --color-accent-ink: #f3cf82;
+
+  /* Surfaces — dark slate, never pure black */
+  --color-bg: #121a18;
+  --color-surface: #182420;
+  --color-surface-muted: #1f2d28;
+
+  /* Text */
+  --color-ink: #eef2f0;
+  --color-text: #d7e0dc;
+  --color-text-muted: #93a89f;
+
+  /* Borders */
+  --color-border: #2e3b35;
+  --color-border-strong: #47584f;
+
+  /* Status */
+  --color-success: #3ecf83;
+  --color-success-soft: #16311f;
+  --color-danger: #ff8a7a;
+  --color-danger-soft: #3a1f1c;
+  --color-danger-border: #5a2b26;
+  --color-danger-icon-bg: #4a231f;
+
+  /* Elevation — dark shadows read better as pure black at low opacity */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+
+  --focus-ring: 0 0 0 3px rgba(63, 174, 144, 0.45);
+
+  --color-skeleton-shine: #24322c;
+  --color-overlay-strong: rgba(15, 21, 19, 0.92);
+  --color-overlay-soft: rgba(255, 255, 255, 0.06);
+  --color-overlay-border: rgba(148, 168, 159, 0.35);
+}

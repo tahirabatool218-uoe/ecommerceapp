@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Login / Register placeholder shell
+   ========================================================================== */
+
+.page--auth {
+  padding-block: clamp(2rem, 6vw, 4.5rem);
+}
+.auth {
+  max-width: 26rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 2.25rem);
+  box-shadow: var(--shadow-sm);
+}
+.auth__title {
+  font-size: var(--text-2xl);
+}
+.auth__description {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+}
+.auth__form {
+  margin-top: var(--space-5);
+}
+.auth__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.auth__error {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-danger-soft);
+  border-radius: var(--radius-md);
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+.field__error {
+  margin-top: var(--space-1);
+  color: var(--color-danger);
+  font-size: var(--text-xs);
+}
+.auth__notice {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-md);
+  color: var(--color-accent-ink);
+  font-size: var(--text-sm);
+}
+.auth__alternate {
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+.auth__alternate a {
+  font-weight: 600;
+}

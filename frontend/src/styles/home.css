@@ -1,0 +1,354 @@
+/* ==========================================================================
+   Home page sections
+   ========================================================================== */
+
+.section {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+.section--tight {
+  padding-top: 0;
+}
+.section--band {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border);
+}
+.section--cta {
+  padding-top: 0;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+.hero__title {
+  max-width: 14ch;
+  font-size: var(--text-3xl);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.hero__description {
+  max-width: 34rem;
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+.hero__note {
+  margin-top: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Hero showcase: one tall tile beside two stacked tiles */
+.showcase {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--space-3);
+  height: clamp(20rem, 38vw, 28rem);
+  padding: var(--space-3);
+  background: var(--color-primary-soft);
+  border-radius: var(--radius-xl);
+}
+.showcase__tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+/* Only real product tiles animate, so the hero reveals once when data arrives */
+a.showcase__tile {
+  animation: tile-in 0.5s ease both;
+}
+.showcase__tile--1 {
+  grid-row: 1 / span 2;
+}
+a.showcase__tile--2 {
+  animation-delay: 0.08s;
+}
+a.showcase__tile--3 {
+  animation-delay: 0.16s;
+}
+.showcase__tile .product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.showcase__tile:focus-visible {
+  outline-offset: 3px;
+}
+.showcase__tile--placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--color-primary);
+  background: var(--color-overlay-soft);
+  border: 1px dashed var(--color-overlay-border);
+}
+.showcase__caption {
+  position: absolute;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: var(--space-2);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-overlay-strong);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  box-shadow: var(--shadow-sm);
+}
+.showcase__name {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-ink);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.showcase__price {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 30rem) {
+  .hero__actions {
+    flex-direction: column;
+  }
+  .hero__actions .btn {
+    width: 100%;
+  }
+  /* Small tiles can't fit name and price on one line */
+  .showcase__caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: var(--space-1) var(--space-2);
+  }
+  .showcase__name {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 55rem) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+  .hero__title {
+    max-width: 18ch;
+  }
+  .showcase {
+    height: clamp(17rem, 60vw, 24rem);
+  }
+}
+
+/* ---------- Categories ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-3);
+}
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  height: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-ink);
+  transition: border-color 0.15s ease;
+}
+.category-card:hover {
+  border-color: var(--color-primary);
+}
+.category-card__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.category-card__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.category-card__name {
+  overflow: hidden;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.category-card__count {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+.category-card__chevron {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+.category-card--skeleton {
+  height: 4.5rem;
+  border: 0;
+}
+
+/* ---------- Why choose us ---------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-5);
+}
+.feature-card {
+  height: 100%;
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+}
+.feature-card__icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.feature-card__title {
+  font-size: var(--text-lg);
+}
+.feature-card__description {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ---------- How it works (a true sequence, so numbered) ---------- */
+.steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+  counter-reset: step;
+}
+.step {
+  position: relative;
+}
+.step__number {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: var(--space-4);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+/* connector line between step markers */
+.step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: 2.5rem;
+  right: calc(-1 * var(--space-5));
+  height: 2px;
+  background: var(--color-border-strong);
+}
+.step__title {
+  font-size: var(--text-lg);
+}
+.step__description {
+  margin-top: var(--space-2);
+  max-width: 16rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 55rem) {
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--space-6);
+  }
+  .step:not(:last-child)::before {
+    display: none;
+  }
+}
+@media (max-width: 30rem) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .step {
+    padding: 0 0 var(--space-5) 3.5rem;
+  }
+  .step__number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+  }
+  .step:not(:last-child)::before {
+    display: block;
+    top: 2.5rem;
+    bottom: 0;
+    left: 1.2rem;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+}
+
+/* ---------- Call to action ---------- */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  background: var(--color-primary);
+  border-radius: var(--radius-xl);
+  color: var(--color-on-primary);
+}
+.cta__title {
+  color: var(--color-on-primary);
+  font-size: var(--text-2xl);
+}
+.cta__description {
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.82);
+}
